@@ -8,6 +8,7 @@ You may press q/ESC to exit anytime
 #### 1. Select the region to scan
 
 i. Auto Detection Mode (Default)
+![image](https://user-images.githubusercontent.com/69416199/152941063-961ef935-ab7f-4bc1-8ac7-ee68b6a8d730.png)
 - You can try to detect the A4 document by tuning/optimizing the parameters.
 - You may press Enter to proceed to next stage once the region is selected.
 
