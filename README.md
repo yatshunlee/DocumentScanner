@@ -1,6 +1,6 @@
 # Scan Duck
-an A4 document scanner
-download link(.exe file): https://drive.google.com/file/d/1j9Bnxy8WgPw-S2iaUIfo2EFdQT0Kzfbo/view?usp=sharing
+- an A4 document scanner
+- download link(.exe file): https://drive.google.com/file/d/1j9Bnxy8WgPw-S2iaUIfo2EFdQT0Kzfbo/view?usp=sharing
 
 ## img2pdf converter
 You may press q/ESC to exit anytime
