@@ -1,9 +1,9 @@
 import tkinter as tk
 from tkinter import *
+from .documentScanner import *
+from .outputPdf import *
 
-from .mergePdf import *
-
-def sort_pdf(filePaths):
+def order(filePaths, function):
     class MyListbox(tk.Listbox):
         def __init__(self, *args, **kwargs):
             tk.Listbox.__init__(self, *args, **kwargs)
@@ -39,12 +39,34 @@ def sort_pdf(filePaths):
             filePaths.insert(pos + 1, item)
 
 
-    def can_merge():
-        save_dir = filedialog.askdirectory(title='Saving directory')
-        merge(filePaths, save_dir)
-        main.destroy()
+    def can_proceed():
+        try:
+            main.destroy()
+        except:
+            pass
+        # save_dir = filedialog.askdirectory(title='Saving directory')
+        save_filename = filedialog.asksaveasfilename(
+            defaultextension=".pdf",
+            title="Save as",
+            filetypes=[('pdf file', '*.pdf')]
+        )
+        if function=='convert' and save_filename:
+            for f in filePaths:
+                messagebox.showinfo(
+                    title='Message',
+                    message='''Press ENTER to go. Press ESC to stop the process.
+[REMINDER] You can press E to edit the range of interest in the auto document detecting process.'''
+                )
+                documentScanner(f)
+            jpgToPdf(filePaths, save_filename)
+        if function=='merge' and save_filename:
+            merge(filePaths, save_filename)
+
+    if len(filePaths)==1 and function=='convert':
+        can_proceed()
 
     main = tk.Tk()
+    main.iconbitmap('Martin-Berube-Square-Animal-Duck.ico')
     main.title('Select order')
     main.geometry('600x300')
     listbox = MyListbox(main, selectmode="extended", width = 70)
@@ -65,7 +87,7 @@ def sort_pdf(filePaths):
     move_up_btn.pack(pady=20,)
     move_down_btn = Button(main, text=" ↓ ", command=lambda listbox=listbox: listbox.move_down(ANCHOR))
     move_down_btn.pack(pady=5)
-    move_down_btn = Button(main, text="ok!", command=can_merge)
+    move_down_btn = Button(main, text="ok!", command=can_proceed)
     move_down_btn.pack(pady=20)
 
     tk.mainloop()

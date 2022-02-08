@@ -1,30 +1,18 @@
 import tkinter as tk
 from tkinter import filedialog
-
-from .documentScanner import *
-from .jpgToPdf import *
-from .reorderPdf import *
+from .reorderPage import *
 
 window = tk.Tk()
 window.title('Scan Duck App')
+window.iconbitmap('Martin-Berube-Square-Animal-Duck.ico')
 window.geometry('400x300')
 window.config(background='#5088F4')
 
 def convert():
     files = filedialog.askopenfilename(title='Select files',multiple=True)
-
     filePaths = window.tk.splitlist(files)
     if filePaths:
-        messagebox.showinfo(
-            title='Message',
-            message='''Press ENTER to go. Press ESC to stop the process.
-[REMINDER] You can press E to edit the range of interest in the auto document detecting process.'''
-        )
-        for f in filePaths:
-            documentScanner(f)
-        save_dir = filedialog.askdirectory(title='Saving directory')
-        jpgToPdf(save_dir)
-        messagebox.showinfo(title='Message', message=f'Done! The pdf file is stored in {save_dir}')
+        order(filePaths, function='convert')
 
 def combine():
     files = filedialog.askopenfilename(title='Select files', multiple=True)
@@ -32,8 +20,7 @@ def combine():
 
     if filePaths:
         # merge(filePaths, save_dir)
-        sort_pdf(filePaths)
-        messagebox.showinfo(title='Message', message=f'Done! The merged pdf file is stored in {save_dir}')
+        order(filePaths, function='merge')
 
 header1_label = tk.Label(window,
                         text='img2pdf converter',

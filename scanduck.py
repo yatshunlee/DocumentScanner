@@ -1,2 +1,2 @@
 if __name__ == '__main__':
-    from lib import menu
+    from lib import mainPage
