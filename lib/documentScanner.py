@@ -5,7 +5,7 @@
 import os
 import cv2
 import numpy as np
-from helper import *
+from .helper import *
 from tkinter import messagebox
 
 def documentScanner(img_name):

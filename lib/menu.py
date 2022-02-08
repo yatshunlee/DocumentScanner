@@ -1,9 +1,9 @@
 import tkinter as tk
 from tkinter import filedialog
 
-from documentScanner import *
-from jpgToPdf import *
-from reorderPdf import *
+from .documentScanner import *
+from .jpgToPdf import *
+from .reorderPdf import *
 
 window = tk.Tk()
 window.title('Scan Duck App')

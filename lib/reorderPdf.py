@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import *
 
-from mergePdf import *
+from .mergePdf import *
 
 def sort_pdf(filePaths):
     class MyListbox(tk.Listbox):
