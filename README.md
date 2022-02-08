@@ -1,5 +1,6 @@
 # Scan Duck
 an A4 document scanner
+download link(.exe file): https://drive.google.com/file/d/1j9Bnxy8WgPw-S2iaUIfo2EFdQT0Kzfbo/view?usp=sharing
 
 ## img2pdf converter
 You may press q/ESC to exit anytime
@@ -9,6 +10,7 @@ You may press q/ESC to exit anytime
   i. Auto Detection Mode (Default)
   You can try to detect the A4 document by tuning/optimizing the parameters.
   You may press Enter to proceed to next stage once the region is selected.
+  
   ii. Manual Selection Mode (Press E)
   Select the corners in anticlockwise direction.
   Press Enter once selected.
