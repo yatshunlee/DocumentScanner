@@ -8,11 +8,13 @@ You may press q/ESC to exit anytime
 #### 1. Select the region to scan
 
 ![image](https://user-images.githubusercontent.com/69416199/152941063-961ef935-ab7f-4bc1-8ac7-ee68b6a8d730.png)
+
 i. Auto Detection Mode (Default)
 - You can try to detect the A4 document by tuning/optimizing the parameters.
 - You may press Enter to proceed to next stage once the region is selected.
 
 ![image](https://user-images.githubusercontent.com/69416199/152941180-58670d26-9861-4792-9f8b-bad0a185ba3c.png)
+
 ii. Manual Selection Mode (Press E)
 - Select the corners in anticlockwise direction.
 - Press Enter once selected.
