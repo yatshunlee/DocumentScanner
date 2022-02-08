@@ -7,13 +7,13 @@ You may press q/ESC to exit anytime
 
 1. Select the region to scan
 
-  i. Auto Detection Mode (Default)
-  You can try to detect the A4 document by tuning/optimizing the parameters.
-  You may press Enter to proceed to next stage once the region is selected.
-  
-  ii. Manual Selection Mode (Press E)
-  Select the corners in anticlockwise direction.
-  Press Enter once selected.
+i. Auto Detection Mode (Default)
+- You can try to detect the A4 document by tuning/optimizing the parameters.
+- You may press Enter to proceed to next stage once the region is selected.
+
+ii. Manual Selection Mode (Press E)
+- Select the corners in anticlockwise direction.
+- Press Enter once selected.
 
 2. Apply filter
 Press Enter when done.
