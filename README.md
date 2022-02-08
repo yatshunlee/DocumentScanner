@@ -1,6 +1,7 @@
 # Scan Duck
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
-- an A4 document scanner
+- scan A4-sized document
+- merge pdf
 - download link: https://drive.google.com/file/d/1j9Bnxy8WgPw-S2iaUIfo2EFdQT0Kzfbo/view?usp=sharing
 
 ## img2pdf converter
