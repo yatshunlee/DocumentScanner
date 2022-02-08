@@ -21,9 +21,9 @@ ii. Manual Selection Mode (Press E)
 
 #### 2. Apply filter
 Press Enter when done.
-i. Original
-ii. Grayscale
-iii. Binary (B&W) - You may tune the threshold.
+- Original
+- Grayscale
+- Binary (B&W) - You may tune the threshold.
 
 #### 3. Select saving location
 
