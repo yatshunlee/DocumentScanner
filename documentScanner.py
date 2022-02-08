@@ -16,18 +16,17 @@ def documentScanner(img_name):
 
     while True:
         if first:
-
             first = False
-            print('auto detect')
 
             # create trackbars
-            cv2.namedWindow('Tuner')
-            cv2.createTrackbar('HIST EQ.', 'Tuner', 0, 1, update)
-            cv2.createTrackbar('GAUSSIAN BLUR', 'Tuner', 5, 9, update)
+            cv2.namedWindow('Auto Detect')
+            cv2.createTrackbar('HIST EQ.', 'Auto Detect', 0, 1, update)
+            cv2.createTrackbar('GAUSSIAN BLUR', 'Auto Detect', 5, 9, update)
 
         # get parameters from trackbars
-        GAUSSIAN_BLUR_SIZE = cv2.getTrackbarPos('GAUSSIAN BLUR', 'Tuner') * 2 + 1
-        HIST_EQ = True if cv2.getTrackbarPos('HIST EQ.', 'Tuner')==1 else False
+        GAUSSIAN_BLUR_SIZE = cv2.getTrackbarPos('GAUSSIAN BLUR', 'Auto Detect') * 2 + 1
+        HIST_EQ = True if cv2.getTrackbarPos('HIST EQ.', 'Auto Detect')==1 else False
+
         # draw largest detected contour
         img = np.copy(im)
         max, largest = get_largest_contour(im, GAUSSIAN_BLUR_SIZE, HIST_EQ, CANNY_SOFT=20, CANNY_HARD=160)
@@ -35,14 +34,12 @@ def documentScanner(img_name):
 
         # resize image by percent of original size
         resized = resize_img(img, scale_percent = 10)
+        cv2.imshow("Auto Detect", resized)
 
-        cv2.imshow("Tuner", resized)
         key = cv2.waitKey(90)
-
         # press Esc or press q to quit
         if key == ord('q') or key == 27:
             exit(0)
-
         # press E to select ROI
         elif key == ord('e'):
             cv2.destroyAllWindows()
@@ -70,7 +67,7 @@ def documentScanner(img_name):
                             cv2.circle(roi_img, pts[i], 5, (0, 0, 255), -1)  # x ,y 为鼠标点击地方的坐标
                             cv2.line(img=roi_img, pt1=pts[i], pt2=pts[i + 1], color=(0, 255, 0), thickness=2)
 
-                    cv2.imshow('crop image', roi_img)
+                    cv2.imshow('Crop Image', roi_img)
 
                 # create a copy and resize it
                 img = np.copy(im)
@@ -78,21 +75,18 @@ def documentScanner(img_name):
                 resized = resize_img(img, scale_percent)
 
                 # create a window to select roi
-                cv2.namedWindow('crop image')
-                cv2.setMouseCallback('crop image', draw_roi)
+                cv2.namedWindow('Crop Image')
+                cv2.setMouseCallback('Crop Image', draw_roi)
 
                 # press Enter to continue after selected ROI
                 # press Esc or press q to leave
                 key = cv2.waitKey(1) & 0xFF
                 if key == ord('q') or key == 27:
-                    print('exit')
                     exit(0)
                 elif key == 13:
-                    print('crop')
                     isEdit = True
                     break
                 elif key == ord('a'):
-                    print('auto detect')
                     first = True
                     break
 
@@ -101,7 +95,6 @@ def documentScanner(img_name):
                 break
 
         elif key == 13:  # press Enter
-            print('selected')
             cv2.destroyAllWindows()
             break
 
@@ -135,13 +128,13 @@ def documentScanner(img_name):
     warped = projective_transform(im, co_x, co_y, LENGTH, WIDTH, isEdit)
     gray = cv2.cvtColor(warped, cv2.COLOR_BGR2GRAY)
 
-    cv2.namedWindow('Threshold Tuner')
-    cv2.createTrackbar('ORIGINAL/GRAY/B&W','Threshold Tuner',0,2,update)
-    cv2.createTrackbar('THRESHOLDING','Threshold Tuner',127,255,update)
+    cv2.namedWindow('Filter')
+    cv2.createTrackbar('ORIGINAL/GRAY/B&W','Filter',0,2,update)
+    cv2.createTrackbar('THRESHOLDING (For B&W)','Filter',127,255,update)
 
     while True:
-        ORIGINAL = cv2.getTrackbarPos('ORIGINAL/GRAY/B&W', 'Threshold Tuner')
-        THRESHOLDING = cv2.getTrackbarPos('THRESHOLDING', 'Threshold Tuner')
+        ORIGINAL = cv2.getTrackbarPos('ORIGINAL/GRAY/B&W', 'Filter')
+        THRESHOLDING = cv2.getTrackbarPos('THRESHOLDING (For B&W)', 'Filter')
 
         if ORIGINAL==2: # B&W image
             ret,thresh_BI = cv2.threshold(gray,THRESHOLDING,255,cv2.THRESH_BINARY)
@@ -151,14 +144,12 @@ def documentScanner(img_name):
         else: # original image
             resized = resize_img(warped, scale_percent=15)
 
-        cv2.imshow("Threshold Tuner", resized)
+        cv2.imshow("Filter", resized)
 
         key = cv2.waitKey(90)
         if key == ord('q') or key == 27:  # Esc or press q
-            print('break')
             exit(0)
         elif key == 13:  # press Enter
-            print('save photo')
             output = thresh_BI if ORIGINAL==2 else gray if ORIGINAL==1 else warped
             break
 

@@ -1,9 +1,9 @@
 import tkinter as tk
-from tkinter import filedialog, messagebox
+from tkinter import filedialog
 
 from documentScanner import *
 from jpgToPdf import *
-from mergePdf import *
+from reorderPdf import *
 
 window = tk.Tk()
 window.title('Scan Duck App')
@@ -29,12 +29,10 @@ def convert():
 def combine():
     files = filedialog.askopenfilename(title='Select files', multiple=True)
     filePaths = window.tk.splitlist(files)
-    pdfs = []
-    for f in filePaths:
-        pdfs.append(f)
-    if pdfs:
-        save_dir = filedialog.askdirectory(title='Saving directory')
-        merge(filePaths, save_dir)
+
+    if filePaths:
+        # merge(filePaths, save_dir)
+        sort_pdf(filePaths)
         messagebox.showinfo(title='Message', message=f'Done! The merged pdf file is stored in {save_dir}')
 
 header1_label = tk.Label(window,
