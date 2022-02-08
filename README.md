@@ -2,7 +2,7 @@
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 - scan A4-sized document
 - merge pdf
-- download link: https://drive.google.com/file/d/1j9Bnxy8WgPw-S2iaUIfo2EFdQT0Kzfbo/view?usp=sharing
+- download link: https://drive.google.com/drive/folders/1MR5DzMS0IcuBu1PVKkdR09LsmuZqvPlp?usp=sharing
 
 ## img2pdf converter
 You may press q/ESC to exit anytime
@@ -11,13 +11,13 @@ You may press q/ESC to exit anytime
 
 ![image](https://user-images.githubusercontent.com/69416199/152941063-961ef935-ab7f-4bc1-8ac7-ee68b6a8d730.png)
 
-i. Auto Detection Mode (Default)
+i. Auto Detection Mode (Default or Press A in Manual Selection Mode)
 - You can try to detect the A4 document by tuning/optimizing the parameters.
 - You may press Enter to proceed to next stage once the region is selected.
 
 ![image](https://user-images.githubusercontent.com/69416199/152941180-58670d26-9861-4792-9f8b-bad0a185ba3c.png)
 
-ii. Manual Selection Mode (Press E)
+ii. Manual Selection Mode (Press E in Auto Detection Mode)
 - Select the corners in anticlockwise direction.
 - Press Enter once selected.
 
