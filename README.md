@@ -22,6 +22,8 @@ ii. Manual Selection Mode (Press E in Auto Detection Mode)
 - Press Enter once selected.
 
 #### 2. Apply filter
+![render2](https://user-images.githubusercontent.com/69416199/153009226-ce625498-125e-47a8-8231-01aaca85014b.jpg)
+
 Press Enter when done.
 - Original
 - Grayscale
