@@ -33,3 +33,7 @@ Press Enter when done.
 1. Select pdf files to combine
 2. Make sure the combining order is correct
 3. Save as 
+
+
+Credit:
+- icon: https://iconarchive.com/show/square-animal-icons-by-martin-berube/Duck-icon.html
